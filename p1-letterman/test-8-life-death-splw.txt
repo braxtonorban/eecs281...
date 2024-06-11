@@ -1,0 +1,26 @@
+S
+20
+// no change
+life
+dlife
+dlief
+dleif
+delif
+delifa
+deliaf
+delaif
+dealif
+deali
+dealit
+dealti
+deatli
+deatl
+// random comment
+deatlh
+deathl
+death
+// comment with space 
+// not sure if these do anything
+happy
+eecs
+love

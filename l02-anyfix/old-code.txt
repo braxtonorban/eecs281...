@@ -1,0 +1,144 @@
+
+    // read expression into the adts
+    for (size_t i = 0; i < expression.length(); ++i) {
+        if (isdigit(expression[i])) {
+            nums.push(charToInt64t(expression[i]));
+        }
+        else if (expression[i] == '+') {
+            optors.push_front('+');
+        }
+        else if (expression[i] == '-') {
+            optors.push_front('-');
+        }
+        else if (expression[i] == '*') {
+            optors.push_front('*');
+        }
+        else if (expression[i] == '/') {
+            optors.push_front('/');
+        }
+        else {
+            exit(1);
+        }
+    }
+
+    // compute the result
+    int64_t result;
+
+    // set initial value for result from the first operation
+    if (optors.back() == '+') {
+        int64_t temp = nums.top();
+        nums.pop();
+        result = temp + nums.top();
+        nums.pop();
+        optors.pop_back();
+    }
+    else if (optors.back() == '-') {
+        int64_t temp = nums.top();
+        nums.pop();
+        result = nums.top() - temp;
+        nums.pop();
+        optors.pop_back();
+    }
+    else if (optors.back() == '*') {
+        int64_t temp = nums.top();
+        nums.pop();
+        result = temp * nums.top();
+        nums.pop();
+        optors.pop_back();
+    }
+    else if (optors.back() == '/') {
+        int64_t temp = nums.top();
+        nums.pop();
+        result = nums.top() / temp;
+        nums.pop();
+        optors.pop_back();
+    }
+    else {
+        exit(1);
+    }
+
+    if (!optors.empty()) {
+        while (!optors.empty() && !nums.empty()) {
+            if (optors.back() == '+') {
+                result += nums.top();
+                nums.pop();
+                optors.pop_back();
+            }
+            else if (optors.back() == '-') {
+                result -= nums.top();
+                nums.pop();
+                optors.pop_back();
+            }
+            else if (optors.back() == '*') {
+                result *= nums.top();
+                nums.pop();
+                optors.pop_back();
+            }
+            else if (optors.back() == '/') {
+                result /= nums.top();
+                nums.pop();
+                optors.pop_back();
+            }
+        }
+    }
+
+    return result;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // read the input from expression:
+    for (uint8_t i = 0; i < expression.length(); ++i) {
+        // if it is a number: add it to the stack
+        if (isdigit(expression[i])) {
+            nums.push(charToInt64t(expression[i]));
+        }
+        // if it is an operator: preform the operation with the top two numbers, then push the result on the top of the stack
+        else {
+            if (nums.size() >= 2) {
+                int64_t result;
+            int64_t temp = nums.top();
+            nums.pop();
+
+            if (expression[i] == '+') {
+                result = temp + nums.top();
+                nums.push(result);
+            }
+            else if (expression[i] == '-') {
+                result = temp - nums.top();
+                nums.push(result);
+            }
+            else if (expression[i] == '*') {
+                result = temp * nums.top();
+                nums.push(result);
+            }
+            else if (expression[i] == '/') {
+                result = temp / nums.top();
+                nums.push(result);
+            }
+            else {
+                exit(1);
+            }
+            }
+            else {
+                
+            }
+        }
+    }
+ 

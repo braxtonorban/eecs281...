@@ -1,0 +1,57 @@
+// note: current implementation assumes start and target are the same size
+string Letterman::change(const string &start, const string &target) {
+    for (size_t i = 0; i < start.size(); ++i) {
+        if (start.at(i) != target.at(i)) {
+            for (size_t j = 0; j < entries.size(); ++i) {
+                if (start.size() == entries[j].getWord().size()) {
+                    if (start.at(i) != entries[j].getWord().at(i) && target.at(i) == entries[j].getWord().at(i)) {
+                        return entries[j].getWord();
+                    }
+                }
+            }
+        }
+    }
+    // what to do if it doesn't work?
+
+    return "it didnt work";
+} // change
+
+// note: current implementation assumes start and target contain the same letters
+string Letterman::swap(const string &start, const string &target) {
+    for (size_t i = 0; i < start.size() - 1; ++i) {
+        if (start.at(i) != target.at(i) && start.at(i + 1) == target.at(i)) {
+            string swapped = start;
+            char temp = swapped.at(i);
+            swapped.at(i) = swapped.at(i + 1);
+            swapped.at(i + 1) = temp;
+
+            for (size_t j = 0; j < entries.size(); ++j) {
+                if (entries[j].getWord() == swapped) {
+                    return swapped;
+                } // if
+            }     // for
+        }         // if
+    }             // for
+
+    return "not swapped";
+}                 // swap
+
+string Letterman::insert(const string &start, const string &target) {
+    if (start.size() < target.size()) {
+        return "";
+    }
+    else {
+        cout << "why would you insert\n";
+        return "";
+    }
+}
+
+string Letterman::deleteMode(const string &start, const string &target) {
+    if (start.size() > target.size()) {
+        return "";
+    }
+    else {
+        cout << "why would you insert\n";
+        return "";
+    }
+}

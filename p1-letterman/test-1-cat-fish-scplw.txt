@@ -1,0 +1,15 @@
+S
+12
+// comment
+cat
+fish
+chat
+fiish
+fissh
+fcat
+fiat
+fist
+fisk
+fosh
+fash
+cath
